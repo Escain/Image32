@@ -15,7 +15,7 @@ interface
 
 uses
   SysUtils, Classes, Math, Types,
-  Img32, Img32.Draw, Img32.Vector;
+  Img32, Img32.Types, Img32.Draw, Img32.Vector;
 
 type
   TButtonShape = (bsRound, bsSquare, bsDiamond);

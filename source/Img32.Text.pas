@@ -18,7 +18,7 @@ uses
   {$IFDEF MSWINDOWS} Windows, ShlObj, ActiveX, {$ENDIF}
   Types, SysUtils, Classes, Math,
   {$IFDEF XPLAT_GENERICS} Generics.Collections, Generics.Defaults,{$ENDIF}
-  Img32, Img32.Draw;
+  Img32, Img32.Types, Img32.Draw;
 
 type
   TFixed = type single;

@@ -15,7 +15,7 @@ interface
 {$I Img32.inc}
 
 uses
-  SysUtils, Classes, Math, Types, Img32, Img32.Vector;
+  SysUtils, Classes, Math, Types, Img32, Img32.Types, Img32.Vector;
 
 type
   TMatrixD = array [0..2, 0..2] of double;

@@ -13,7 +13,7 @@ unit Img32.Clipper2;
 interface
 
 uses
-  Img32, Img32.Draw, Img32.Vector, Clipper.Offset;
+  Img32, Img32.Types, Img32.Draw, Img32.Vector, Clipper.Offset;
 
 //nb: InflatePath assumes that there's consistent winding where
 //outer paths wind in one direction and inner paths in the other
@@ -74,11 +74,11 @@ begin
 end;
 //------------------------------------------------------------------------------
 
-function InflatePath(const path: Img32.TPathD;
+function InflatePath(const path: Img32.Types.TPathD;
   delta: Double; joinStyle: TJoinStyle; endType: TClipperEndType;
-  miterLimit: double; arcTolerance: double; minEdgeLength: double): Img32.TPathsD;
+  miterLimit: double; arcTolerance: double; minEdgeLength: double): Img32.Types.TPathsD;
 var
-  paths: Img32.TPathsD;
+  paths: Img32.Types.TPathsD;
 begin
   setLength(paths, 1);
   paths[0] := path;
@@ -87,9 +87,9 @@ begin
 end;
 //------------------------------------------------------------------------------
 
-function InflatePaths(const paths: Img32.TPathsD;
+function InflatePaths(const paths: Img32.Types.TPathsD;
   delta: Double; joinStyle: TJoinStyle; endType: TClipperEndType;
-  miterLimit: double; arcTolerance: double; minEdgeLength: double): Img32.TPathsD;
+  miterLimit: double; arcTolerance: double; minEdgeLength: double): Img32.Types.TPathsD;
 var
   jt: Clipper.Offset.TJoinType;
 begin
@@ -101,13 +101,13 @@ begin
     else if endType = etRound then jt := jtRound
     else jt := jtSquare;
   end;
-  Result := Img32.TPathsD(Clipper.InflatePaths(
+  Result := Img32.Types.TPathsD(Clipper.InflatePaths(
     Clipper.Core.TPathsD(paths), delta, jt, endType));
 end;
 //------------------------------------------------------------------------------
 
-function UnionPolygon(const polygon: Img32.TPathD;
-  fillRule: Img32.Vector.TFillRule): Img32.TPathsD;
+function UnionPolygon(const polygon: Img32.Types.TPathD;
+  fillRule: Img32.Vector.TFillRule): Img32.Types.TPathsD;
 begin
   with TClipperD.Create do
   try
@@ -120,8 +120,8 @@ begin
 end;
 //------------------------------------------------------------------------------
 
-function UnionPolygons(const polygons: Img32.TPathsD;
-  fillRule: Img32.Vector.TFillRule): Img32.TPathsD;
+function UnionPolygons(const polygons: Img32.Types.TPathsD;
+  fillRule: Img32.Vector.TFillRule): Img32.Types.TPathsD;
 begin
   with TClipperD.Create do
   try
@@ -134,8 +134,8 @@ begin
 end;
 //------------------------------------------------------------------------------
 
-function UnionPolygons(const polygon1, polygon2: Img32.TPathD;
-  fillRule: Img32.Vector.TFillRule): Img32.TPathsD;
+function UnionPolygons(const polygon1, polygon2: Img32.Types.TPathD;
+  fillRule: Img32.Vector.TFillRule): Img32.Types.TPathsD;
 begin
   with TClipperD.Create do
   try
@@ -149,8 +149,8 @@ begin
 end;
 //------------------------------------------------------------------------------
 
-function UnionPolygons(const polygons1, polygons2: Img32.TPathsD;
-  fillRule: Img32.Vector.TFillRule): Img32.TPathsD;
+function UnionPolygons(const polygons1, polygons2: Img32.Types.TPathsD;
+  fillRule: Img32.Vector.TFillRule): Img32.Types.TPathsD;
 begin
   with TClipperD.Create do
   try
@@ -164,8 +164,8 @@ begin
 end;
 //------------------------------------------------------------------------------
 
-function IntersectPolygons(const polygons1, polygons2: Img32.TPathsD;
-  fillRule: Img32.Vector.TFillRule): Img32.TPathsD;
+function IntersectPolygons(const polygons1, polygons2: Img32.Types.TPathsD;
+  fillRule: Img32.Vector.TFillRule): Img32.Types.TPathsD;
 begin
   with TClipperD.Create do
   try
@@ -179,8 +179,8 @@ begin
 end;
 //------------------------------------------------------------------------------
 
-function DifferencePolygons(const polygons1, polygons2: Img32.TPathsD;
-  fillRule: Img32.Vector.TFillRule): Img32.TPathsD;
+function DifferencePolygons(const polygons1, polygons2: Img32.Types.TPathsD;
+  fillRule: Img32.Vector.TFillRule): Img32.Types.TPathsD;
 begin
   with TClipperD.Create do
   try

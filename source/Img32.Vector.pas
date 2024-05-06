@@ -19,7 +19,7 @@ interface
 {$I Img32.inc}
 
 uses
-  SysUtils, Classes, Math, Types, Img32;
+  SysUtils, Classes, Math, Types, Img32.Types;
 
 type
   TArrowStyle = (asNone, asSimple, asFancy, asDiamond, asCircle, asTail);
@@ -538,7 +538,7 @@ end;
 
 function TRectWH.RectD: TRectD;
 begin
-  Result := Img32.RectD(left, top, left + Width, top + Height);
+  Result := Img32.Types.RectD(left, top, left + Width, top + Height);
 end;
 //------------------------------------------------------------------------------
 

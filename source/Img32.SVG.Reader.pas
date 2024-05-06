@@ -21,7 +21,7 @@ interface
 uses
   SysUtils, Classes, Types, Math, StrUtils,
   {$IFDEF XPLAT_GENERICS} Generics.Collections, Generics.Defaults,{$ENDIF}
-  Img32, Img32.SVG.Core, Img32.SVG.Path, Img32.Vector,
+  Img32, Img32.Types, Img32.SVG.Core, Img32.SVG.Path, Img32.Vector,
   Img32.Draw, Img32.Text, Img32.Transform;
 
 {$IFDEF ZEROBASEDSTR}

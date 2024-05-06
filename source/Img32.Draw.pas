@@ -27,7 +27,7 @@ interface
 {$DEFINE UseTrunc}
 
 uses
-  SysUtils, Classes, Types, Math, Img32, Img32.Vector;
+  SysUtils, Classes, Types, Math, Img32, Img32.Types, Img32.Vector;
 
 type
   TFillRule = Img32.Vector.TFillRule;
